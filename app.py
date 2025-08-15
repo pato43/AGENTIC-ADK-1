@@ -32,69 +32,58 @@ PALETTE = px.colors.qualitative.Prism
 px.defaults.template = "plotly_dark"
 
 # Tipografías y estilos globales
-st.markdown(f"""
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+# Estilos principales (Walmart México)
+custom_css = """
 <style>
-/* Layout oscuro full-bleed */
-html, body, [class*="css"]  {{
-  background-color: {BG_DARK};
-  color: {TEXT};
-  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-}}
-.block-container {{padding: 0.5rem 1rem 1rem 1rem;}}
-header {{visibility: hidden;}}
-
-/* Encabezado/branding */
-.brand {{
-  display:flex; align-items:center; gap:14px; padding:10px 0 8px 0;
-}}
-.brand-title {{
-  font-weight:900; font-size:1.2rem; letter-spacing:.2px; color:{TEXT};
-}}
-.badge {{
+html, body, [class*="css"] {
+  background-color: #0E1117;
+  color: #F5F7FA;
+  font-family: 'Inter', sans-serif;
+}
+.block-container {padding: 0.5rem 1rem 1rem 1rem;}
+header {visibility: hidden;}
+.brand {display:flex; align-items:center; gap:14px; padding:10px 0;}
+.brand-title {font-weight:900; font-size:1.2rem; letter-spacing:.2px; color:#F5F7FA;}
+.badge {
   font-size:.75rem; font-weight:800; padding:4px 10px; border-radius:8px; color:#0B1220;
-  background: linear-gradient(135deg, {WALMART_YELLOW}, #FFE180);
-}}
-
-/* Píldoras de estado */
-.pill {{
+  background: linear-gradient(135deg, #FFC220, #FFE180);
+}
+.pill {
   display:inline-block; padding:6px 12px; border-radius:999px; font-size:.8rem;
-  background: {WALMART_BLUE}; color:#00142E; margin:0 8px 8px 0; font-weight:800;
+  background: #0071CE; color:#00142E; margin:0 8px 8px 0; font-weight:800;
   box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-}}
-.pill.muted {{ background: #21324A; color: {TEXT}; }}
-
-/* Tarjetas KPI */
-.kpi-card {{
-  background: {CARD_DARK};
-  border: 1px solid #1F2633;
+}
+.pill.muted { background: #21324A; color: #F5F7FA; }
+.kpi-card {
+  background: #141922; border: 1px solid #1F2633;
   border-radius: 16px; padding: 14px 16px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-}}
-.kpi-title {{ font-size: .78rem; color:{MUTED}; font-weight:600; letter-spacing:.2px; }}
-.kpi-value {{ font-size: 1.5rem; font-weight:900; color:{TEXT}; }}
-.kpi-sub {{ font-size: .80rem; color:{MUTED}; font-weight:600; }}
-
-/* Secciones */
-.section-title{{ font-size: 1.05rem; font-weight:900; letter-spacing:.2px; margin: 6px 0 8px 0; }}
-hr.section {{ border: none; height: 1px;
-  background: linear-gradient(90deg, {WALMART_BLUE}, {WALMART_YELLOW}); margin: 8px 0 16px;}}
-
-/* Cajas */
-.card {{
-  background: {CARD_DARK};
-  border: 1px solid #1F2633; border-radius: 14px; padding: 12px 14px;
-}}
-
-/* Inputs */
-.stTextInput > div > div > input {{
-  background: #0F1420 !important; color: {TEXT} !important; border: 1px solid #20283A !important;
-}}
-.stButton > button {{
-  background: {WALMART_BLUE}; color: #00142E; font-weight:900; border-radius: 10px; border: none;
-}}
+}
+.kpi-title { font-size: .78rem; color:#B8C2CC; font-weight:600; letter-spacing:.2px; }
+.kpi-value { font-size: 1.5rem; font-weight:900; color:#F5F7FA; }
+.kpi-sub { font-size: .80rem; color:#B8C2CC; font-weight:600; }
+.section-title { font-size: 1.05rem; font-weight:900; letter-spacing:.2px; margin: 6px 0 8px 0; }
+hr.section {
+  border: none; height: 1px;
+  background: linear-gradient(90deg, #0071CE, #FFC220);
+  margin: 8px 0 16px;
+}
+.card {
+  background: #141922; border: 1px solid #1F2633;
+  border-radius: 14px; padding: 12px 14px;
+}
+.stTextInput > div > div > input {
+  background: #0F1420 !important; color: #F5F7FA !important;
+  border: 1px solid #20283A !important; border-radius: 10px;
+}
+.stButton > button {
+  background: #0071CE; color: #00142E;
+  font-weight:900; border-radius: 10px; border: none;
+}
 </style>
-""", unsafe_allow_html=True)
+"""
+st.markdown(custom_css, unsafe_allow_html=True)
+
 
 # =========================
 # DATOS SINTÉTICOS (Retail MX)
